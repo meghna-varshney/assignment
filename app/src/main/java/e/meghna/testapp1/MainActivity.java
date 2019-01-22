@@ -24,16 +24,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String a = etText.getText().toString().trim();
                 StringBuffer sb=new StringBuffer();
-                for(int i=0;i< a.length();i++){
-                    char c=a.charAt(i);
-                    if(i%2==0){
-                        if(c==122)
-                            c=(char) (c-25);
-                        else{
-                            c=(char) (c+1);}
-                        sb.append(c);}
-                    else
-                        sb.append(c);}
+                for(int i=0;i< a.length();i++) {
+                    char c = a.charAt(i);
+                    if (c == 122)
+                        c = (char) (c - 25);
+
+                    else {
+                        if(c == 32)
+                            c = (char) (c + 0);
+                        else
+                            c = (char) (c + 1);
+                    }
+                    sb.append(c);
+                }
                 textread.setVisibility(View.VISIBLE);
                 textread.setText(sb.toString());
 
